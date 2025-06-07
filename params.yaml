@@ -14,7 +14,7 @@ training:
   target: 'Class'
   drop: 'Time'
 random_forest:
-  n_estimators: 100            # Number of trees in the forest
+  n_estimators: 10            # Number of trees in the forest
   criterion: gini              # Function to measure the quality of a split: 'gini' or 'entropy'
   max_depth: 10                # Maximum depth of the tree
   min_samples_split: 2         # Minimum number of samples required to split an internal node

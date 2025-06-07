@@ -5,8 +5,8 @@ stages:
     deps:
     - path: params.yaml
       hash: md5
-      md5: 3a29de5f93ba1437908f1c0e9b0461c2
-      size: 1055
+      md5: 1381642ac53fc4cb4a0a1f61e33aa8e7
+      size: 1054
     - path: src/dataset.py
       hash: md5
       md5: d26c1acd46aee2694f7c4c42f52e9551
@@ -20,3 +20,18 @@ stages:
       hash: md5
       md5: 3439972b15c511e712ddb03655c5ea58
       size: 120654718
+  train_model:
+    cmd: python -m src.modeling.train
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 3439972b15c511e712ddb03655c5ea58
+      size: 120654718
+    - path: params.yaml
+      hash: md5
+      md5: 1381642ac53fc4cb4a0a1f61e33aa8e7
+      size: 1054
+    - path: src/modeling/train.py
+      hash: md5
+      md5: 21c0e40cc3748c0f55815699f2f2d6e5
+      size: 2590
