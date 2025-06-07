@@ -1,0 +1,33 @@
+{
+  "kaggle": {
+    "dataset_name": "mlg-ulb/creditcardfraud",
+    "file_path": "creditcard.csv"
+  },
+  "dataset": {
+    "data_dir": "data",
+    "train_file_name": "train.csv",
+    "test_file_name": "test.csv",
+    "split_size": 0.2,
+    "random_state": 42
+  },
+  "mlflow": {
+    "metrics_file": "yaml_metrics.json",
+    "model_metrics_file": "model_training.json"
+  },
+  "training": {
+    "target": "Class",
+    "drop": "Time"
+  },
+  "random_forest": {
+    "n_estimators": 100,
+    "criterion": "gini",
+    "max_depth": 10,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "bootstrap": true,
+    "random_state": 42,
+    "class_weight": "balanced",
+    "verbose": 1
+  }
+}

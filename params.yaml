@@ -7,3 +7,20 @@ dataset:
   test_file_name: 'test.csv'
   split_size: 0.2
   random_state: 42
+mlflow:
+  metrics_file: 'yaml_metrics.json'
+  model_metrics_file: 'model_training.json'
+training:
+  target: 'Class'
+  drop: 'Time'
+random_forest:
+  n_estimators: 100            # Number of trees in the forest
+  criterion: gini              # Function to measure the quality of a split: 'gini' or 'entropy'
+  max_depth: 10                # Maximum depth of the tree
+  min_samples_split: 2         # Minimum number of samples required to split an internal node
+  min_samples_leaf: 1          # Minimum number of samples required to be at a leaf node
+  max_features: sqrt           # Number of features to consider when looking for the best split
+  bootstrap: true              # Whether bootstrap samples are used when building trees
+  random_state: 42             # Seed used by the random number generator
+  class_weight: balanced    
+  verbose: 1   

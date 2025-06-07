@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/727218995700990567/05667a89c2624c07a71342cc9bf92aee/artifacts
+deleted_time: 1749301072149
+end_time: 1749297947083
+entry_point_name: ''
+experiment_id: '727218995700990567'
+lifecycle_stage: deleted
+run_id: 05667a89c2624c07a71342cc9bf92aee
+run_name: Dataset Creation
+run_uuid: 05667a89c2624c07a71342cc9bf92aee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749297947030
+status: 4
+tags: []
+user_id: gaurav
