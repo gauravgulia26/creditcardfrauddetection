@@ -2,7 +2,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = creditcardfrauddetection
+PROJECT_NAME = src
 PYTHON_VERSION = 3.12
 PYTHON_INTERPRETER = python
 

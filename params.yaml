@@ -1,0 +1,9 @@
+kaggle:
+  dataset_name: "mlg-ulb/creditcardfraud"
+  file_path: 'creditcard.csv'
+dataset:
+  data_dir: 'data'
+  train_file_name: 'train.csv'
+  test_file_name: 'test.csv'
+  split_size: 0.2
+  random_state: 42

@@ -20,3 +20,5 @@ typer
 kagglehub
 dvc
 mlflow
+python-box
+logpunch
