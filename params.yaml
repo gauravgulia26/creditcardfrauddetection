@@ -1,18 +1,18 @@
 kaggle:
-  dataset_name: "mlg-ulb/creditcardfraud"
-  file_path: 'creditcard.csv'
+  dataset_name: mlg-ulb/creditcardfraud
+  file_path: creditcard.csv
 dataset:
-  data_dir: 'data'
-  train_file_name: 'train.csv'
-  test_file_name: 'test.csv'
-  split_size: 0.2
+  data_dir: data
+  train_file_name: train.csv
+  test_file_name: test.csv
+  split_size: 0.3
   random_state: 42
 mlflow:
-  metrics_file: 'yaml_metrics.json'
-  model_metrics_file: 'model_training.json'
+  metrics_file: yaml_metrics.json
+  model_metrics_file: model_training.json
 training:
-  target: 'Class'
-  drop: 'Time'
+  target: Class
+  drop: Time
 random_forest:
   n_estimators: 10            # Number of trees in the forest
   criterion: gini              # Function to measure the quality of a split: 'gini' or 'entropy'
@@ -22,5 +22,5 @@ random_forest:
   max_features: sqrt           # Number of features to consider when looking for the best split
   bootstrap: true              # Whether bootstrap samples are used when building trees
   random_state: 42             # Seed used by the random number generator
-  class_weight: balanced    
-  verbose: 1   
+  class_weight: balanced
+  verbose: 1
