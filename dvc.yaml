@@ -1,0 +1,19 @@
+stages:
+  create_dataset:
+    cmd: python -m src.dataset
+    deps:
+      - src/dataset.py
+      - params.yaml
+    outs:
+      - data/processed/train.csv
+      - data/processed/test.csv
+    
+  train_model:
+    cmd: python -m src.modeling.train
+    deps:
+      - src/modeling/train.py
+      - data/processed/train.csv
+      - params.yaml
+    metrics:
+      - mlartifacts/metrics.json:
+          cache: false

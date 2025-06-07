@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  create_dataset:
+    cmd: python -m src.dataset
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 3a29de5f93ba1437908f1c0e9b0461c2
+      size: 1055
+    - path: src/dataset.py
+      hash: md5
+      md5: d26c1acd46aee2694f7c4c42f52e9551
+      size: 2003
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 2a21701d79c9acdbad708ab7840a2fa9
+      size: 30163000
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 3439972b15c511e712ddb03655c5ea58
+      size: 120654718
