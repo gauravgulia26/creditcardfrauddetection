@@ -1,14 +1,16 @@
+import mlflow.sklearn
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.base import BaseEstimator
 import pandas as pd
 from src.logger import logger
 from src.utils import validated, LoadYaml
-from src.config import TRAIN_DIR
+from src.config import TRAIN_DIR, SAVED_MODEL_PATH
 from pydantic import Field
 import pathlib
 import mlflow
 import joblib
 import os
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("Fraud Detection")
@@ -72,14 +74,52 @@ def main():
     ):
         df = ReadData()
         X, Y = MakeDepIndep(df=df)
+
+        # Log dataset metrics
         training_metrics = {
             "train_rows": X.shape[0],
             "train_columns": X.shape[1],
             "test_Series_rows": Y.shape[0],
         }
         mlflow.log_dict(training_metrics, artifact_file=yaml_file.mlflow.model_metrics_file)
-        mlflow.log_params(yaml_file.random_forest, synchronous=False)
+
+        # Log model parameters
+        mlflow.log_params(yaml_file.random_forest)
+
+        # Train the model
         model = TrainModel(x=X, y=Y)
+
+        # Calculate and log model performance metrics
+        y_pred = model.predict(X)
+
+        metrics = {
+            "accuracy": accuracy_score(Y, y_pred),
+            "precision": precision_score(Y, y_pred),
+            "recall": recall_score(Y, y_pred),
+            "f1_score": f1_score(Y, y_pred),
+        }
+
+        # Log metrics
+        mlflow.log_metrics(metrics)
+
+        # Create input example for model signature
+        input_example = X.head(1)
+
+        # Log the model with signature
+        mlflow.sklearn.log_model(
+            model,
+            "random_forest_model",
+            registered_model_name="fraud_detection_model",
+            input_example=input_example,
+        )
+
+        # Save model using joblib
+        os.makedirs(os.path.dirname(SAVED_MODEL_PATH), exist_ok=True)
+        joblib.dump(model, SAVED_MODEL_PATH)
+        logger.info(f"Model saved successfully at {SAVED_MODEL_PATH}")
+
+        logger.info("Model training and logging completed successfully")
+
     return model
 
 

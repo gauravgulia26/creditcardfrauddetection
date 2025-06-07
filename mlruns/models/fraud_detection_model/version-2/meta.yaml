@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1749314208428
+current_stage: None
+description: ''
+last_updated_timestamp: 1749314208428
+name: fraud_detection_model
+run_id: 02604c2d20294c1392aad874beda802e
+run_link: ''
+source: mlflow-artifacts:/156458501829876158/02604c2d20294c1392aad874beda802e/artifacts/random_forest_model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/156458501829876158/02604c2d20294c1392aad874beda802e/artifacts/random_forest_model
+user_id: null
+version: 2

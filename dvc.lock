@@ -33,5 +33,34 @@ stages:
       size: 1054
     - path: src/modeling/train.py
       hash: md5
-      md5: 21c0e40cc3748c0f55815699f2f2d6e5
-      size: 2590
+      md5: 6fd2bde3e05ff1f3800c993dfaefe20d
+      size: 3780
+    outs:
+    - path: models/best_model.joblib
+      hash: md5
+      md5: 29cadf0d28561b1e619ecb2eb61e71d3
+      size: 174041
+  predict:
+    cmd: python -m src.modeling.predict
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 2a21701d79c9acdbad708ab7840a2fa9
+      size: 30163000
+    - path: models/best_model.joblib
+      hash: md5
+      md5: 29cadf0d28561b1e619ecb2eb61e71d3
+      size: 174041
+    - path: params.yaml
+      hash: md5
+      md5: 1381642ac53fc4cb4a0a1f61e33aa8e7
+      size: 1054
+    - path: src/modeling/predict.py
+      hash: md5
+      md5: c7cf5718c334f60bc6cdcef1ef08b03a
+      size: 3498
+    outs:
+    - path: data/processed/predictions.csv
+      hash: md5
+      md5: 65385a5b5dfc3e8b7232dc8e6ece72ee
+      size: 30276936
