@@ -5,6 +5,7 @@ from pydantic import validate_call, Field
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import mlflow
+from pathlib import Path
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("Fraud Detection")

@@ -1,5 +1,6 @@
-aliases: {}
+aliases:
+  stablemodel: '3'
 creation_timestamp: 1749314021548
 description: ''
-last_updated_timestamp: 1749314663960
+last_updated_timestamp: 1749316340743
 name: fraud_detection_model
