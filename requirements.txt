@@ -23,3 +23,4 @@ mlflow
 python-box
 logpunch
 pylint
+commitizen
