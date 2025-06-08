@@ -1,11 +1,11 @@
+import pandas as pd
+import mlflow
+from sklearn.model_selection import train_test_split
+from pathlib import Path
+from pydantic import Field
 from src.logger import logger, TrackedException
 from src.config import TRAIN_DIR, TEST_DIR
 from src.utils import LoadDataKaggle, LoadYaml, validated
-from pydantic import validate_call, Field
-import pandas as pd
-from sklearn.model_selection import train_test_split
-import mlflow
-from pathlib import Path
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("Fraud Detection")
